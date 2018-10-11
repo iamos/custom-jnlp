@@ -35,3 +35,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}
     chmod +x /usr/local/bin/kubectl /usr/local/bin/helm
 
 RUN rm -rf helm-${HELM_VERSION}-linux-amd64.tar.gz
+
+RUN helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.6.1
