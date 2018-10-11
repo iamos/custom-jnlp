@@ -1,0 +1,8 @@
+# MAINTAINER Marco <marco@buzzni.com>
+version: '3'
+services:
+    custom-jnlp:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: "iamos/custom-jnlp"
