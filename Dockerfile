@@ -14,7 +14,10 @@ RUN apt update && \
     ca-certificates \
     curl \
     gnupg2 \
-    software-properties-common
+    software-properties-common \
+    python python-setuptools python-dev build-essential python-pip 
+
+RUN pip install awscli==1.16.31
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
     apt-key fingerprint 0EBFCD88 && \
@@ -36,4 +39,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}
 
 RUN rm -rf helm-${HELM_VERSION}-linux-amd64.tar.gz
 
-RUN helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.6.1
+RUN helm init --client-only && \
+    helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.6.1
