@@ -6,7 +6,7 @@ ARG DC_VERSION=1.22.0
 ENV KUBECTL_VERSION=v1.10.2
 ENV HELM_VERSION=v2.8.2
 
-USER root
+USER jenkins
 
 RUN apt update && \
     apt install -qq -y --no-install-recommends \
